@@ -5,11 +5,14 @@ btn.addEventListener('click', (e)=>{
     .then(response=>response.json())
     .then(data=>{
         console.log(data);
-        let tr = document.getElementById('poke');
-        tr.innerHTML+= `<td> <img src='${data.sprites.front_default}'></td>
-        este pokemon es un ${data.species.name}, 
-        su experiencia es de ${data.base_experience} y
-        su id es ${data.id}`;
+        let contenedor = document.getElementById('poke');
+        contenedor.innerHTML+= `
+            <div class='content'> 
+                <img src='${data.sprites.front_default}' />
+                <span><strong>Name : </strong>${data.species.name}</span>
+                <span><strong>Exp: </strong>${data.base_experience}</span>
+                <span><strong>Id: </strong> ${data.id}</span>
+            </div>`;
 
         
     
